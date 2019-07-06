@@ -1,0 +1,8 @@
+C:\Users\goekh\source\repos\InversionOfControlProject_VS\InversionOfControlProject_VS\obj\Debug\InversionOfControlProject_VS.csprojAssemblyReference.cache
+C:\Users\goekh\source\repos\InversionOfControlProject_VS\InversionOfControlProject_VS\obj\Debug\InversionOfControlProject_VS.Properties.Resources.resources
+C:\Users\goekh\source\repos\InversionOfControlProject_VS\InversionOfControlProject_VS\obj\Debug\InversionOfControlProject_VS.csproj.GenerateResource.cache
+C:\Users\goekh\source\repos\InversionOfControlProject_VS\InversionOfControlProject_VS\obj\Debug\InversionOfControlProject_VS.csproj.CoreCompileInputs.cache
+C:\Users\goekh\source\repos\InversionOfControlProject_VS\InversionOfControlProject_VS\bin\Debug\InversionOfControlProject_VS.exe
+C:\Users\goekh\source\repos\InversionOfControlProject_VS\InversionOfControlProject_VS\bin\Debug\InversionOfControlProject_VS.pdb
+C:\Users\goekh\source\repos\InversionOfControlProject_VS\InversionOfControlProject_VS\obj\Debug\InversionOfControlProject_VS.exe
+C:\Users\goekh\source\repos\InversionOfControlProject_VS\InversionOfControlProject_VS\obj\Debug\InversionOfControlProject_VS.pdb
