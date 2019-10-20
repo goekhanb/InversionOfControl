@@ -5,22 +5,18 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element maxOccurs="unbounded" name="food">
-          <xs:complexType>
+          <xs:complexType mixed="true">
             <xs:sequence>
               <xs:element name="dummy">
                 <xs:complexType>
                   <xs:simpleContent>
                     <xs:extension base="xs:string">
-                      <xs:attribute name="dummy" type="xs:string" use="optional" />
                       <xs:attribute name="domainType" type="xs:string" use="required" />
                       <xs:attribute name="type" type="xs:string" use="optional" />
                     </xs:extension>
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="price" type="xs:string" />
-              <xs:element name="description" type="xs:string" />
-              <xs:element name="calories" type="xs:unsignedShort" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
