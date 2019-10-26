@@ -1,68 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-  <xs:element name="Enum">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="EnumType"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="EnumType">
-    <xs:complexType>
-      <xs:choice>
-        <xs:sequence>
-          <xs:element ref="Dummy0"/>
-          <xs:element ref="Dummy1"/>
-          <xs:element ref="Dummy2"/>
-          <xs:element ref="Dummy3"/>
-        </xs:sequence>
-        <xs:sequence>
-          <xs:element ref="DummyA"/>
-          <xs:element ref="DummyB"/>
-          <xs:element ref="DummyC"/>
-          <xs:element ref="DummyD"/>
-        </xs:sequence>
-      </xs:choice>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Dummy0">
-    <xs:complexType mixed="true">
-      <xs:attribute name="key" use="required" type="xs:integer"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Dummy1">
-    <xs:complexType mixed="true">
-      <xs:attribute name="key" use="required" type="xs:integer"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Dummy2">
-    <xs:complexType mixed="true">
-      <xs:attribute name="key" use="required" type="xs:integer"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Dummy3">
-    <xs:complexType mixed="true">
-      <xs:attribute name="key" use="required" type="xs:integer"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DummyA">
-    <xs:complexType mixed="true">
-      <xs:attribute name="key" use="required" type="xs:NCName"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DummyB">
-    <xs:complexType mixed="true">
-      <xs:attribute name="key" use="required" type="xs:NCName"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DummyC">
-    <xs:complexType mixed="true">
-      <xs:attribute name="key" use="required" type="xs:NCName"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DummyD">
-    <xs:complexType mixed="true">
-      <xs:attribute name="key" use="required" type="xs:NCName"/>
-    </xs:complexType>
-  </xs:element>
-</xs:schema>
+
+XSD:
+
+<element name="person"> 
+        <complexType> 
+            <sequence> 
+                <element name="address"> 
+                    <complexType> 
+                        <attribute name="type"> 
+                            <simpleType> 
+                                <restriction base="string"> 
+                                    <enumeration value="email"></enumeration> 
+                                    <enumeration value="phone"></enumeration> 
+                                    <enumeration value="company"></enumeration> 
+                                </restriction> 
+                            </simpleType> 
+                        </attribute> 
+                    </complexType> 
+                </element> 
+            </sequence> 
+            <attribute name="name" type="string"></attribute>  
+            <attribute name="age" type="int"></attribute>  
+            <attribute name="gender" type="string"></attribute> 
+        </complexType> 
+    </element> 
+
+
+
+-----------------------------------------------------------------------------------
+XML:
+
+<?xml version="1.0" encoding="UTF-8"?> 
+<person name="avinash" age="27" gender="male"> 
+    <address type="email">xgjjkk@gmail.com</address> 
+    <address type="phone">khkhlll</address> 
+    <address type="company">jgjhgjhgk</address>  
+</person> 
+
