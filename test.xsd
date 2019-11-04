@@ -1,38 +1,105 @@
 
 XSD:
 
-<element name="person"> 
-        <complexType> 
-            <sequence> 
-                <element name="address"> 
-                    <complexType> 
-                        <attribute name="type"> 
-                            <simpleType> 
-                                <restriction base="string"> 
-                                    <enumeration value="email"></enumeration> 
-                                    <enumeration value="phone"></enumeration> 
-                                    <enumeration value="company"></enumeration> 
-                                </restriction> 
-                            </simpleType> 
-                        </attribute> 
-                    </complexType> 
-                </element> 
-            </sequence> 
-            <attribute name="name" type="string"></attribute>  
-            <attribute name="age" type="int"></attribute>  
-            <attribute name="gender" type="string"></attribute> 
-        </complexType> 
-    </element> 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="order" type="OrderType">
+        
+        <xs:keyref name="prodNumKeyRef" refer="prodNumKey">
+            <xs:selector xpath="items/*"/>
+            <xs:field xpath="@number"/>
+        </xs:keyref>
+        <xs:key name="prodNumKey">
+            <xs:selector xpath=".//product"/>
+            <xs:field xpath="number"/>
+        </xs:key>
+    </xs:element>
+    
+    <xs:complexType name="OrderType">
+        <xs:sequence>
+            <xs:element name="number" type="xs:string"/>
+            <xs:element name="items" type="ItemsType"/>
+            <xs:element name="products" type="ProductsType"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ItemsType">
+        <xs:choice maxOccurs="unbounded">
+            <xs:element name="shirt" type="ProductOrderType"/>
+            <xs:element name="hat" type="ProductOrderType"/>
+        </xs:choice>
+    </xs:complexType>
+    
+    <xs:complexType name="ProductOrderType">
+        <xs:sequence>
+            <xs:element name="quantity" type="xs:integer"/>
+            <xs:element name="color" type="ColorType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="number" type="xs:integer"/>
+    </xs:complexType>
+    
+    <xs:complexType name="ProductsType">
+        <xs:sequence>
+            <xs:element name="product"
+                        type="ProductType"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ProductType">
+        <xs:sequence>
+            <xs:element name="number" type="xs:integer"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="price" type="PriceType"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ColorType">
+        <xs:attribute name="value" type="xs:string"/>
+    </xs:complexType>
+    
+    <xs:complexType name="PriceType">
+        <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+                <xs:attribute name="currency" type="xs:token"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+</xs:schema>
 
 
 
 -----------------------------------------------------------------------------------
 XML:
 
-<?xml version="1.0" encoding="UTF-8"?> 
-<person name="avinash" age="27" gender="male"> 
-    <address type="email">xgjjkk@gmail.com</address> 
-    <address type="phone">khkhlll</address> 
-    <address type="company">jgjhgjhgk</address>  
-</person> 
+<order xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="test.xsd">
+    <number>123ABBCC123</number>
+    <items>
+        <shirt number="557">
+            <quantity>1</quantity>
+            <color value="blue"/>
+        </shirt>
+        <shirt number="557">
+            <quantity>1</quantity>
+            <color value="sage"/>
+        </shirt>
+        <hat number="563">
+            <quantity>1</quantity>
+        </hat>
+    </items>
+    
+    <products>
+        <product>
+            <number>557</number>
+            <name>Short-Sleeved Linen Blouse</name>
+            <price currency="USD">29.99</price>
+        </product>
+        <product>
+            <number>563</number>
+            <name>Ten-Gallon Hat</name>
+            <price currency="USD">69.99</price>
+        </product>
+    </products>
+</order>
+
 
